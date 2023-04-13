@@ -10,3 +10,8 @@ def get_courses(request):
 def get_course(request, course_id):
     course = Courses.objects.get(id=course_id)
     return JsonResponse(course, safe=False)
+
+def test(request):
+    return {
+        "name": "test"
+    }
