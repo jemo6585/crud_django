@@ -7,4 +7,6 @@ urlpatterns = [
     path('courses/<int:course_id>/', views.get_course),
     path('', views.test),
     path('admin/', admin.site.urls),
+    path('course/', views.add_or_delete_course),
+    path('del/<int:id>', views.delete_course)
 ]
