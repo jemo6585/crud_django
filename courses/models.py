@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Courses(models.Model):
-    couse_id = models.IntegerField(primary_key=True,auto_created=True)
+    course_id = models.IntegerField(primary_key=True, auto_created=True)
     course_name = models.CharField(max_length=200)
     course_description = models.TextField()
 
