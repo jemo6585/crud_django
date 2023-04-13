@@ -5,13 +5,25 @@ from .models import Courses
 
 def get_courses(request):
     courses = Courses.objects.all()
-    return JsonResponse(courses, safe=False)
+    all_courses = [];
+    for course in courses:
+        all_courses.append({
+            "id": course.course_id,
+            "name": course.course_name,
+            "description": course.course_description,
+        })
+    return JsonResponse(all_courses, safe=False)
 
 def get_course(request, course_id):
-    course = Courses.objects.get(id=course_id)
-    return JsonResponse(course, safe=False)
+    course = Courses.objects.get(course_id=course_id)
+    course_data = {
+        "id": course.course_name,
+        "name": course.course_name,
+        "description": course.course_description,
+    }
+    return JsonResponse(course_data, safe=False)
 
 def test(request):
-    return {
+    return JsonResponse({
         "name": "test"
-    }
+    })
